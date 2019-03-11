@@ -1,5 +1,5 @@
 Q1.	Write a program to print default values of all primitive types.
-Q2.	Write a program to declare all primitive data types with all possible types of initialization and also check implicit and       explicit type casting by assigning them to each other.
+Q2.	Write a program to declare all primitive data types with all possible types of initialization and also check implicit and explicit type casting by assigning them to each other.
 Q3.	Write a program to find weather a number is Prime or not.
 Q4.	Write a program to calculate average of the n number using a separate function other than main. 
 Q5.	Write a program to display number matrix as follows using Two Dimensional Rectangular Array.
