@@ -29,7 +29,7 @@ public class CopyDataThread extends Thread {
 				if(i%10 == 0)
 				{
 					System.out.println("\nTen character entered!!\n");
-					Thread.sleep(500);
+					Thread.sleep(5000);
 				}
 				fos.write(ch);
 			}
