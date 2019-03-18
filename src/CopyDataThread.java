@@ -1,42 +1,48 @@
 package LabWork;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class CopyDataThread extends Thread {
+	
+	/*
+	 * Copy data from one file to another file and after copying 10 character
+	 * pause of 10 seconds 
+	 */
 	public void run()
 	{
 		try
 		{
-			FileReader fr = new FileReader("/home/elena/eclipse-workspace/StringFileHandling/src/com/NewFile.txt");
-			BufferedReader br = new BufferedReader(fr);
+			FileInputStream fr = new FileInputStream("/home/elena/eclipse-workspace/StringFileHandling/src/com/NewFile.txt");
 			FileWriter fos = new FileWriter("/home/elena/eclipse-workspace/StringFileHandling/src/com/target.txt");
-			BufferedWriter bor = new BufferedWriter(fos);
-			String str =  "";
-			while((str = br.readLine()) != null)
+			char ch ;
+			int i = 0;
+			while(fr.available() > 0)
 			{
-				String[] word = str.split(" ");
-				for(int i = 0; i<word.length;i++)
+				ch = (char)fr.read();
+				if(ch == ' ' || ch == '\n')
 				{
-					fos.write(word[i]);
-					if(i%10 == 0)
-					{
-						System.out.println("Ten Character copied");
-						Thread.sleep(5000);
-						
-					}
+					continue;
 				}
-				
+				System.out.print(ch);
+				i += 1;					
+				if(i%10 == 0)
+				{
+					System.out.println("\nTen character entered!!\n");
+					Thread.sleep(500);
+				}
+				fos.write(ch);
 			}
+			System.out.println("Total number of characters -->" + i);
+			fos.flush();
+			fos.close();
+			fr.close();
 		}
 		catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		
 	}
 
 	public static void main(String[] args) {
