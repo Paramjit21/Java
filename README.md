@@ -17,4 +17,5 @@
                 *      *
                 *      *      *
                 *      *      *      *
+
 **Q7** Write a program using Switch–case to print number of days in a month. For the month of February   check for leap year and calculate. 	
